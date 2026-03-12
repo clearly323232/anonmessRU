@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
     socket.to(safeRoomId).emit('participant-joined', participant)
   })
 
-  socket.on('chat-message', ({ text }) => {
+  socket.on('chat-message', ({ text, encrypted, iv }) => {
     const participant = participantsBySocket.get(socket.id)
     if (!participant) {
       return
@@ -73,6 +73,8 @@ io.on('connection', (socket) => {
       alias: participant.alias,
       senderId: socket.id,
       createdAt: new Date().toISOString(),
+      encrypted: Boolean(encrypted),
+      iv: iv ? String(iv).slice(0, 512) : undefined,
     }
 
     io.to(participant.roomId).emit('chat-message', message)
@@ -111,6 +113,20 @@ io.on('connection', (socket) => {
       fromId: socket.id,
       targetId,
       candidate,
+    })
+  })
+
+  socket.on('call-ended', ({ targetId }) => {
+    io.to(targetId).emit('call-ended', {
+      fromId: socket.id,
+      targetId,
+    })
+  })
+
+  socket.on('call-declined', ({ targetId }) => {
+    io.to(targetId).emit('call-declined', {
+      fromId: socket.id,
+      targetId,
     })
   })
 

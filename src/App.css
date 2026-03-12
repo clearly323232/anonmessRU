@@ -88,6 +88,26 @@
   gap: 8px;
 }
 
+.incoming-call {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.incoming-call p,
+.share-box small {
+  margin: 8px 0 0;
+  color: #97a8c6;
+}
+
+.incoming-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .share-box {
   display: grid;
   gap: 10px;
@@ -143,6 +163,10 @@
   height: 100%;
   object-fit: cover;
   background: #030814;
+}
+
+.video-panel audio {
+  display: none;
 }
 
 .video-card span {
@@ -247,9 +271,14 @@
     padding-top: 20px;
   }
 
+  .incoming-call,
   .video-grid,
   .message-form {
     grid-template-columns: 1fr;
+  }
+
+  .incoming-call {
+    display: grid;
   }
 
   .panel,
