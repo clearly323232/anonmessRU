@@ -1,0 +1,89 @@
+:root {
+  font-family:
+    "Segoe UI",
+    "Inter",
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #eef4ff;
+  background:
+    radial-gradient(circle at top left, rgba(31, 61, 122, 0.8), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(16, 118, 77, 0.45), transparent 28%),
+    linear-gradient(180deg, #071120 0%, #030711 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(140, 185, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(7, 16, 31, 0.82);
+  color: #eef4ff;
+  outline: none;
+}
+
+input:focus {
+  border-color: rgba(136, 211, 179, 0.5);
+  box-shadow: 0 0 0 3px rgba(136, 211, 179, 0.12);
+}
+
+button {
+  border: 0;
+  border-radius: 18px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #8cb9ff, #88d3b3);
+  color: #04101d;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    filter 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+button.secondary {
+  background: rgba(138, 174, 255, 0.1);
+  color: #eef4ff;
+  border: 1px solid rgba(140, 185, 255, 0.16);
+}
+
+button.danger {
+  background: rgba(255, 103, 103, 0.14);
+  color: #ffd8d8;
+  border: 1px solid rgba(255, 103, 103, 0.18);
+}
+
+#root {
+  min-height: 100vh;
+}
